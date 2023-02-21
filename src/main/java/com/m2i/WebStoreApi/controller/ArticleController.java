@@ -22,12 +22,14 @@ public class ArticleController {
 	@Autowired
 	ArticleService aService;
 	
+	
 	@GetMapping("/fake")
 	public Article fakeArticle() {
 		Article a = new Article();
 		aService.create(a);
 		return a;
 	}
+	
 	
 	@GetMapping("/{id}")
 	public Article getArticleById(@PathVariable int id) {
@@ -50,8 +52,9 @@ public class ArticleController {
 	}
 	
 	@DeleteMapping("/{id}")
-	public void deleteMapping(@PathVariable int id) {
+	public void deleteArticle(@PathVariable int id) {
 		aService.delete(id);
 	}
+	
 
 }
