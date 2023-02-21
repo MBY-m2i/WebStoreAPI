@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -35,6 +37,9 @@ public class Command {
 	
 //	@OneToOne(mappedBy="command")
 //	private Payment payment;
+	@JsonIgnore
+	@ManyToOne @JoinColumn(name="id_user")
+	private User user;
 	
 	public Command() {
 		Faker f = new Faker();
