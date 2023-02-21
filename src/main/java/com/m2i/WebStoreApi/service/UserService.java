@@ -32,7 +32,7 @@ public class UserService {
 			user.setLogin( u.getLogin() );
 			user.setPassword( u.getPassword());
 			user.setConnectionNumber( u.getConnectionNumber());
-			user.setUserInformations( u.getUserInformations() );
+			user.setUserinformations( u.getUserinformations() );
 			user.setRoles( u.getRoles() );
 			repo.save(user);
 		}

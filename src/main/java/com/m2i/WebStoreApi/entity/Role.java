@@ -14,21 +14,29 @@ import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
-@Entity @Table
-@Getter @Setter @AllArgsConstructor
+@Entity @Table(name="roles")
+@Getter @Setter @AllArgsConstructor @ToString
 public class Role {
 
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	private String RoleName;	
+	private String roleName;	
 	
 	@ManyToMany
 	@JoinTable(name = "user_role_association",
 			joinColumns = @JoinColumn(name="id_role"),
 			inverseJoinColumns = @JoinColumn(name="id_user"))
 	private List<User> users;
-	
 
+
+
+	public Role() {
+		super();		
+	}
+	
+	
+	
 }

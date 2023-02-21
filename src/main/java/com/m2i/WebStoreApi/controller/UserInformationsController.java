@@ -16,7 +16,7 @@ import com.m2i.WebStoreApi.entity.UserInformations;
 import com.m2i.WebStoreApi.service.UserInformationsService;
 
 @RestController
-@RequestMapping("/userinformtions")
+@RequestMapping("/userinformations")
 public class UserInformationsController {
 
 	@Autowired
@@ -24,10 +24,11 @@ public class UserInformationsController {
 	
 	
 	
-//	@GetMapping("/{id}")
-//	public User getUserById(@PathVariable("id") int id) {
-//		return uService.getById(id);
-//	}
+	@GetMapping("/{id}")
+	public UserInformations getUserById(@PathVariable("id") int id) {
+		return uiService.getById(id);
+	}
+	
 	
 	@GetMapping
 	public List<UserInformations> getAll(){

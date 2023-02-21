@@ -4,6 +4,7 @@ import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -12,6 +13,7 @@ import lombok.ToString;
 
 @Entity
 @Table(name="CreditCardPayment")
+@PrimaryKeyJoinColumn(name="idPayment")
 @Getter @Setter
 @ToString
 public class CreditCardPayment extends Payment {
@@ -21,12 +23,6 @@ public class CreditCardPayment extends Payment {
 	
 	@Column(name="expirationDate")
 	private Date expirationDate;
-
-	public CreditCardPayment(float amount, Date paymentDate, String cardNumber, Date expirationDate) {
-		super(amount, paymentDate);
-		this.cardNumber = cardNumber;
-		this.expirationDate = expirationDate;
-	}
 
 	public CreditCardPayment() {
 		super();

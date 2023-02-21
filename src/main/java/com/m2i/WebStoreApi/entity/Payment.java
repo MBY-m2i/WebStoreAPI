@@ -10,6 +10,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -17,7 +19,8 @@ import lombok.ToString;
 @Entity @Table
 @Getter @Setter
 @ToString
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.JOINED)
+@JsonDeserialize(as = PaypalPayment.class)
 public abstract class Payment {
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,22 +28,9 @@ public abstract class Payment {
 	
 	private float amount;
 	private Date paymentDate;
-	
-	public Payment(int id, float amount, Date paymentDate) {
-		super();
-		this.id = id;
-		this.amount = amount;
-		this.paymentDate = paymentDate;
-	}
-
-	public Payment(float amount, Date paymentDate) {
-		super();
-		this.amount = amount;
-		this.paymentDate = paymentDate;
-	}
 
 	public Payment() {
 		super();
 	}
-
+	
 }

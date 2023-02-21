@@ -14,8 +14,8 @@ public class UserInformationsService {
 	@Autowired
 	UserInformationsRepository repo1;
 	
-	public void create(UserInformations u) {
-		repo1.save(u);
+	public void create(UserInformations ui) {
+		repo1.save(ui);
 	}
 
 	public UserInformations getById(int id) {
@@ -26,14 +26,14 @@ public class UserInformationsService {
 		return repo1.findAll();
 	}
 
-	public void update(int id, UserInformations u) {
+	public void update(int id, UserInformations ui) {
 		UserInformations userInformations = repo1.findById(id).orElse(null);
-		if (u!= null) {
-			userInformations.setAddress( u.getAddress() );
-			userInformations.setCity( u.getCity());
-			userInformations.setEmail( u.getEmail());
-			userInformations.setPhoneNumber( u.getPhoneNumber() );
-			userInformations.setUser( u.getUser() );
+		if (ui!= null) {
+			userInformations.setAddress( ui.getAddress() );
+			userInformations.setCity( ui.getCity());
+			userInformations.setEmail( ui.getEmail());
+			userInformations.setPhoneNumber( ui.getPhoneNumber() );
+			userInformations.setUser( ui.getUser() );
 			repo1.save(userInformations);
 		}
 	}

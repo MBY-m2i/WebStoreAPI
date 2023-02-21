@@ -9,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -34,8 +33,8 @@ public class Command {
 	@JsonIgnore
 	private List<CommandLine> commandLines = new ArrayList<>();
 	
-	@OneToOne(mappedBy="command")
-	private Payment payment;
+//	@OneToOne(mappedBy="command")
+//	private Payment payment;
 	
 	public Command() {
 		Faker f = new Faker();

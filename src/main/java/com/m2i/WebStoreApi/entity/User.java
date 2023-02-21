@@ -1,5 +1,6 @@
 package com.m2i.WebStoreApi.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -13,14 +14,16 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.github.javafaker.Faker;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
-@Entity @Table
-@Getter @Setter @AllArgsConstructor
+@Entity @Table(name="users")
+@Getter @Setter @AllArgsConstructor @ToString
 public class User {
 
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,13 +35,15 @@ public class User {
 	
 	private int connectionNumber;
 	
-	@OneToOne(targetEntity= UserInformations.class, mappedBy="user_informations" , cascade = CascadeType.ALL, orphanRemoval = true)
-    private UserInformations userInformations = new UserInformations();
+	@JsonIgnore
+	@OneToOne(targetEntity= UserInformations.class, mappedBy="user" , cascade = CascadeType.ALL, orphanRemoval = true)
+    private UserInformations userinformations;
 	
 	@ManyToMany
 	@JoinTable(name = "user_role_association",
 			joinColumns = @JoinColumn(name="id_user"),
 			inverseJoinColumns = @JoinColumn(name="id_role"))
+	@JsonIgnore
 	private List<Role> roles;
 	
 	
@@ -51,6 +56,8 @@ public class User {
 		this.password = f.internet().password();
 		
 		this.connectionNumber = f.number().numberBetween(0, 1000000);
+		
+		this.roles = new ArrayList<>();
 		
 	}
 }
