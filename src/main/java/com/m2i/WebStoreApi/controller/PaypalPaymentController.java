@@ -1,4 +1,4 @@
-package com.m2i.WebStoreApiV2.controller;
+package com.m2i.WebStoreApi.controller;
 
 import java.util.List;
 
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.m2i.WebStoreApiV2.entity.PaypalPayment;
-import com.m2i.WebStoreApiV2.service.PaypalPaymentService;
+import com.m2i.WebStoreApi.entity.PaypalPayment;
+import com.m2i.WebStoreApi.service.PaypalPaymentService;
 
 @RestController
 @RequestMapping("/paypalpayment")

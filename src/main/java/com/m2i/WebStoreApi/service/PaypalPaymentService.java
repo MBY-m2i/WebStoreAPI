@@ -1,12 +1,12 @@
-package com.m2i.WebStoreApiV2.service;
+package com.m2i.WebStoreApi.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.m2i.WebStoreApiV2.entity.PaypalPayment;
-import com.m2i.WebStoreApiV2.repository.PaypalPaymentRepository;
+import com.m2i.WebStoreApi.entity.PaypalPayment;
+import com.m2i.WebStoreApi.repository.PaypalPaymentRepository;
 
 @Service
 public class PaypalPaymentService {

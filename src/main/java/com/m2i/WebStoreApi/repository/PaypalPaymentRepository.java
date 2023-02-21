@@ -1,8 +1,8 @@
-package com.m2i.WebStoreApiV2.repository;
+package com.m2i.WebStoreApi.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.m2i.WebStoreApiV2.entity.PaypalPayment;
+import com.m2i.WebStoreApi.entity.PaypalPayment;
 
 public interface PaypalPaymentRepository extends JpaRepository<PaypalPayment, Integer>{
 

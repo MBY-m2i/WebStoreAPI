@@ -1,12 +1,12 @@
-package com.m2i.WebStoreApiV2.service;
+package com.m2i.WebStoreApi.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.m2i.WebStoreApiV2.entity.CreditCardPayment;
-import com.m2i.WebStoreApiV2.repository.CreditCardPaymentRepository;
+import com.m2i.WebStoreApi.entity.CreditCardPayment;
+import com.m2i.WebStoreApi.repository.CreditCardPaymentRepository;
 
 @Service
 public class CreditCardPaymentService {
